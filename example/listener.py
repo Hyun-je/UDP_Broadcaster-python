@@ -1,4 +1,5 @@
 import asyncio
+import threading
 from udp_broadcaster import UDPListener
 
 def on_received_message(data, addr):
@@ -11,4 +12,7 @@ listener = UDPListener(
     callback=on_received_message
 )
 
-asyncio.run(listener.listen())
+listener.start()
+
+while True:
+    pass
