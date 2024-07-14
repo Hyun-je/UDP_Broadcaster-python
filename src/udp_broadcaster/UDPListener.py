@@ -17,6 +17,9 @@ class UDPListener:
     def add_callback(self, message_type, callback):
         self._callbacks[message_type] = callback
 
+    def add_callbacks(self, callbacks):
+        self._callbacks.update(callbacks)
+
     async def listen_loop(self):
         loop = asyncio.get_running_loop()
 
